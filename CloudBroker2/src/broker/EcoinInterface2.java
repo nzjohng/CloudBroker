@@ -24,13 +24,13 @@ import broker.CustomerData;
 
 public class EcoinInterface2 implements Serializable
 {
-	private static final long serialVersionUID = -5190316235621450917L;
+//	private static final long serialVersionUID = -5190316235621450917L;
 
 	public EcoinInterface2()
 	{
 	}
-	private CustomerManager customer_manager = BrokerFactory.getInstance().getCustomerManager();
-	private EcoinManager ecoin_manager = BrokerFactory.getInstance().getEcoinManager();
+	private CustomerManager customer_manager;
+	private EcoinManager ecoin_manager;
 	
 	public CustomerManager getCustomerManager() {
 		if(customer_manager == null)
@@ -130,7 +130,7 @@ if (customer_data!=null){
         //if(customer_manager.findCustomer(customer_data.getID()) != null)
        	//setMessage("Customer with ID "+customer_data.getID()+" already exists!");
         //else {
-        	customer_manager.insertCustomer(c2);
+        	getCustomerManager().insertCustomer(c2);
         	              //  }            
           setMessage1("r");
           } catch (Exception e) {
@@ -193,7 +193,7 @@ if (customer_data!=null){
 
        try {
 
-    	   long ecoinID = ecoin_manager.generatEcoin(customer_data.getID(),customer_data.getNecoins());
+    	   long ecoinID = this.getEcoinManager().generatEcoin(customer_data.getID(),customer_data.getNecoins());
                     
      	 //ecoin_manager.vendorhost(ecoinID);
 

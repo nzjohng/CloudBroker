@@ -13,7 +13,7 @@ public class CustomerInterface2 implements Serializable {
   public CustomerInterface2() {
   }
 
-  private CustomerManager customer_manager = BrokerFactory.getInstance().getCustomerManager();
+  transient private CustomerManager customer_manager = BrokerFactory.getInstance().getCustomerManager();
 
   public void processRequest(CustomerData customer_data)
   {
