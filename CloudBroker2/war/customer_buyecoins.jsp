@@ -20,6 +20,7 @@ Customer Buy Ecoins
 
 <jsp:setProperty name="customer_data" property="*" />
 
+
 <%
 
 BrokerFactory.getInstance().init();
